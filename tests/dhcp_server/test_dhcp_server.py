@@ -817,8 +817,9 @@ def test_dhcp_server_config_vlan_intf_change(
     if extra_ipv4_prefixes:
         logging.info("Temporarily removing extra IPv4 prefixes from %s: %s" %
                      (vlan_name_1, extra_ipv4_prefixes))
-    for extra_ip in extra_ipv4_prefixes:
-        duthost.remove_ip_addr_from_vlan(vlan_name_1, extra_ip)
+
+        for extra_ip in extra_ipv4_prefixes:
+            duthost.remove_ip_addr_from_vlan(vlan_name_1, extra_ip)
 
     try:
         # When the subnet not match to VLAN, client won't get IP
